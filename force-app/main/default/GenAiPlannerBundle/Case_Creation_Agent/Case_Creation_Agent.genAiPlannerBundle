@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Assist users in raising a new support case. The agent collects the customer’s email, validates it, and then gathers details about the issue before creating the case in Salesforce.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jgL000000aIzJ</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Card_Activation_16jgL000000aIzJ</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Card_Replacement_16jgL000000aIzJ</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Card_Activation_16jgL000000aIzJ</fullName>
+        <canEscalate>true</canEscalate>
+        <description>Handles customer requests related to card activation, including assisting with activation, providing relevant knowledge articles, and escalating unresolved issues to an agent.</description>
+        <developerName>Card_Activation_16jgL000000aIzJ</developerName>
+        <genAiPluginInstructions>
+            <description>For card activation or any card services, 1st Display the details from the knowledge article titled &apos;Card Services&apos; using the &apos;Agent Knowledge Article&apos; action.</description>
+            <developerName>instructions_0_1761551460892</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1761551460892</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Ask if the article is useful or need further guidance. Only If user ask for further guidance, then guide them further. 1st Ask and confirm the user&apos;s registered email address .After getting email address , Create a case with the intent and type as Card Services using the action &apos;Agent Create Case 1&apos;. Store case id for the conversation and provide case details when requested using action: Agent Case Summary</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>After creating case , Present a menu with options: Card Activation, Card Replacement, Card Limit Change.
+If its Card Activation, ask for the card type in menu format (Debit/Credit/Business) and the last 4 digits of the card number.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Send the card details to the Agent Card Activation to activate the card.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If the user is unsatisfied or an error occurs, check with the user and escalate to the corresponding agent.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Generate a random 4-digit verification code to authenticate the user&apos;s identity during the card activation process.</description>
+            <developerName>instruction_5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 5</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Agent_Knowledge_Article_179gL000000VkZd</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Agent_Create_Case1_179gL000000VkZd</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Agent_Get_Case_Summary_179gL000000VkZd</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Agent_Card_Activation_179gL000000VkZd</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Agent_Create_Case1_179gL000000VkZd</fullName>
+            <description>This action helps the user create a new Case by first collecting their registered email ID, details of the issue like subject and detailed description, and then creats case. This action helps user is logging theei issue in salesforce. This action modifies uses contact, account and case object. It modifies case object by inserting a new record. This action can be triggered by &quot; Hi i want to registered a case&quot; or &quot;I have an issue&quot; etc also dont show caseid in coversation, but show in thinking panel. When requested show to user.</description>
+            <developerName>Agent_Create_Case1_179gL000000VkZd</developerName>
+            <invocationTarget>Agent_Create_Case</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Agent_Create_Case1</localDeveloperName>
+            <masterLabel>Agent Create Case1</masterLabel>
+            <source>Agent_Create_Case1</source>
+        </localActions>
+        <localActions>
+            <fullName>Agent_Knowledge_Article_179gL000000VkZd</fullName>
+            <description>Get details from knowledge article</description>
+            <developerName>Agent_Knowledge_Article_179gL000000VkZd</developerName>
+            <invocationTarget>Agent_Knowledge_Article</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Agent_Knowledge_Article</localDeveloperName>
+            <masterLabel>Agent Knowledge Article</masterLabel>
+            <source>Agent_Knowledge_Article</source>
+        </localActions>
+        <localActions>
+            <fullName>Agent_Get_Case_Summary_179gL000000VkZd</fullName>
+            <description>When user ask the details of the case, get the case id or case number and display the coresponding case details to the user.</description>
+            <developerName>Agent_Get_Case_Summary_179gL000000VkZd</developerName>
+            <invocationTarget>Agent_Get_Case_Summary</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Agent_Get_Case_Summary</localDeveloperName>
+            <masterLabel>Agent Get Case Summary</masterLabel>
+            <source>Agent_Get_Case_Summary</source>
+        </localActions>
+        <localActions>
+            <fullName>Agent_Card_Activation_179gL000000VkZd</fullName>
+            <description>Activate card and send email</description>
+            <developerName>Agent_Card_Activation_179gL000000VkZd</developerName>
+            <invocationTarget>Agent_Card_Service</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Agent_Card_Activation</localDeveloperName>
+            <masterLabel>Agent Card Activation</masterLabel>
+        </localActions>
+        <localDeveloperName>Card_Activation</localDeveloperName>
+        <masterLabel>Card Activation</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to assist users with card activation-related queries. Confirm the registered email address, create a case with the intent and type as Card Services, and provide relevant knowledge article details. Guide users through further steps based on their needs, including card activation, replacement, or limit changes. Escalate to the appropriate agent if necessary.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Card_Replacement_16jgL000000aIzJ</fullName>
+        <canEscalate>true</canEscalate>
+        <description>Handles customer requests related to card replacement, including activation, replacement, and limit changes.</description>
+        <developerName>Card_Replacement_16jgL000000aIzJ</developerName>
+        <genAiPluginInstructions>
+            <description>For Card Replacement,  or any services 1st Ask and confirm the user&apos;s registered email address. After getting email address , Create a Case with the intent and type as Card Services using the action &apos;Agent Create Case 1&apos;. Store case id for the conversation and provide case details when requested using action: Agent Case Summary</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>For card Replacement or any card services after getting email address, Display the details from the knowledge article titled &apos;Card Services&apos; using the &apos;Agent Knowledge Article&apos; action.</description>
+            <developerName>instruction_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 2</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Ask if the article is useful or need further guidance. Only If user ask for further guidance, then guide them further. Present a menu with options: Card Activation, Card Replacement, Card Limit Change.</description>
+            <developerName>instruction_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 3</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>For card Replacement or any card services after getting email address Only If user is not satisfied with article, ask for the card type in menu format (Debit/Credit/Business) and the last 4 digits of the card number and replacement reason : Lost,Stolen,Damaged,Others.</description>
+            <developerName>instruction_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 4</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>For card Replacement or any card services after getting email address Send the details to the &apos;Agent Card Replacement&apos; action to activate the card.</description>
+            <developerName>instruction_5</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 5</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>For card Replacement or any card services after getting email address If the user is not satisfied or an error occurs, confirm with the user and escalate to the corresponding agent.</description>
+            <developerName>instruction_6</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 6</masterLabel>
+            <sortOrder>5</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Agent_Create_Case1_179gL000000Vy4j</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Agent_Get_Case_Summary_179gL000000Vy4j</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Agent_Knowledge_Article_179gL000000Vy4j</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Agent_Card_Replacement_179gL000000Vy4j</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Agent_Get_Case_Summary_179gL000000Vy4j</fullName>
+            <description>When user ask the details of the case, get the case id or case number and display the coresponding case details to the user.</description>
+            <developerName>Agent_Get_Case_Summary_179gL000000Vy4j</developerName>
+            <invocationTarget>Agent_Get_Case_Summary</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Agent_Get_Case_Summary</localDeveloperName>
+            <masterLabel>Agent Get Case Summary</masterLabel>
+            <source>Agent_Get_Case_Summary</source>
+        </localActions>
+        <localActions>
+            <fullName>Agent_Create_Case1_179gL000000Vy4j</fullName>
+            <description>This action helps the user create a new Case by first collecting their registered email ID, details of the issue like subject and detailed description, and then creats case. This action helps user is logging theei issue in salesforce. This action modifies uses contact, account and case object. It modifies case object by inserting a new record. This action can be triggered by &quot; Hi i want to registered a case&quot; or &quot;I have an issue&quot; etc also dont show caseid in coversation, but show in thinking panel. When requested show to user.</description>
+            <developerName>Agent_Create_Case1_179gL000000Vy4j</developerName>
+            <invocationTarget>Agent_Create_Case</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Agent_Create_Case1</localDeveloperName>
+            <masterLabel>Agent Create Case1</masterLabel>
+            <source>Agent_Create_Case1</source>
+        </localActions>
+        <localActions>
+            <fullName>Agent_Knowledge_Article_179gL000000Vy4j</fullName>
+            <description>Get details from knowledge article</description>
+            <developerName>Agent_Knowledge_Article_179gL000000Vy4j</developerName>
+            <invocationTarget>Agent_Knowledge_Article</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Agent_Knowledge_Article</localDeveloperName>
+            <masterLabel>Agent Knowledge Article</masterLabel>
+            <source>Agent_Knowledge_Article</source>
+        </localActions>
+        <localActions>
+            <fullName>Agent_Card_Replacement_179gL000000Vy4j</fullName>
+            <description>Replace card and send email</description>
+            <developerName>Agent_Card_Replacement_179gL000000Vy4j</developerName>
+            <invocationTarget>Agent_Card_Replacement</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Agent_Card_Replacement</localDeveloperName>
+            <masterLabel>Agent Card Replacement</masterLabel>
+        </localActions>
+        <localDeveloperName>Card_Replacement</localDeveloperName>
+        <masterLabel>Card Replacement</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is to assist users with card replacement-related queries by confirming their registered email address, creating a case with the appropriate intent and type as Card Services, and providing relevant knowledge article details. Additionally, guide users through further actions based on their selections and escalate to an agent if necessary.</scope>
+    </localTopics>
+    <masterLabel>Case Creation Agent</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jgL000000aIzJ</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jgL000000aIzJ</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__ReAct</plannerType>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>isVerified</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>equal</operator>
+            <rightOperandValue>true</rightOperandValue>
+        </conditions>
+        <expression>Verified_User</expression>
+        <expressionLabel>Verified User</expressionLabel>
+        <expressionName>Verified_User</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
+</GenAiPlannerBundle>
