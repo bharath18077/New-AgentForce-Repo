@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>BCd2VboM+XJd8wKJkUHwxaCxsM+rtwimt5+DU8ClRYY=_2</activeVersionIdentifier>
+    <developerName>Account_Record_Summary</developerName>
+    <masterLabel>Account Record Summary</masterLabel>
+    <relatedEntity>Account</relatedEntity>
+    <templateVersions>
+        <content>You are a Salesforce Assistant. Summarize the key details of the Account record in a clear, professional tone.  
+The summary should include:  
+- Account Name  
+- Account Number  
+- Type  
+- Annual Revenue  
+- Number of Cases  
+
+Provide the output as a short, well-formatted paragraph for business use.
+
+Account Details:
+Name: {!$Input:Account.Name}
+Account Number: {!$Input:Account.AccountNumber}
+Type: {!$Input:Account.Type}
+Annual Revenue: {!$Input:Account.AnnualRevenue}
+
+Related Cases:
+{!$RelatedList:Account.Cases.Records}
+
+Your output should be 3–4 sentences, concise and factual.
+
+
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Account.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Cases</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:Account.Cases.Records</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BCd2VboM+XJd8wKJkUHwxaCxsM+rtwimt5+DU8ClRYY=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Salesforce Assistant. Summarize the key details of the Account record in a clear, professional tone.  
+The summary should include:  
+- Account Name  
+- Account Number  
+- Type  
+- Annual Revenue  
+- Number of Cases  
+
+Provide the output as a short, well-formatted paragraph for business use.
+
+Account Details:
+Name: {!$Input:Account.Name}
+Account Number: {!$Input:Account.AccountNumber}
+Type: {!$Input:Account.Type}
+Annual Revenue: {!$Input:Account.AnnualRevenue}
+
+Related Cases:
+{!$RelatedList:Account.Cases.Records}
+
+Your output should be 3–4 sentences, concise and factual.
+
+
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Account.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Cases</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:Account.Cases.Records</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BCd2VboM+XJd8wKJkUHwxaCxsM+rtwimt5+DU8ClRYY=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Salesforce Assistant. Summarize the key details of the Account record in a clear, professional tone.  
+
+Provide the output as a short, well-formatted paragraph for business use.
+
+Account Details:
+Name: {!$Input:Account.Name}
+Account Number: {!$Input:Account.AccountNumber}
+Type: {!$Input:Account.Type}
+Annual Revenue: {!$Input:Account.AnnualRevenue}
+
+Related Cases:
+{!$RelatedList:Account.Cases.Records}
+
+Your output should be 3–4 sentences, concise and factual.
+
+
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Account.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Cases</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:Account.Cases.Records</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BCd2VboM+XJd8wKJkUHwxaCxsM+rtwimt5+DU8ClRYY=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a Salesforce Assistant. Summarize the key details of the Account record in a clear, professional tone.  
+
+Provide the output as a short, well-formatted paragraph for business use.
+
+Account Details:
+Name: {!$Input:Account.Name}
+Account Number: {!$Input:Account.AccountNumber}
+Type: {!$Input:Account.Type}
+Annual Revenue: {!$Input:Account.AnnualRevenue}
+
+Related Cases:
+{!$RelatedList:Account.Cases.Records}
+
+Your output should be 3–4 sentences, concise and factual.
+
+
+</content>
+        <inputs>
+            <apiName>objectToSummarize</apiName>
+            <definition>SOBJECT://Account</definition>
+            <referenceName>Input:Account</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4OmniMini</primaryModel>
+        <status>Draft</status>
+        <templateDataProviders>
+            <definition>invocable://getRelatedList</definition>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>parentRecordId</parameterName>
+                <valueExpression>{!$Input:Account.Id}</valueExpression>
+            </parameters>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>true</isRequired>
+                <parameterName>relatedListName</parameterName>
+                <valueExpression>Cases</valueExpression>
+            </parameters>
+            <referenceName>RelatedList:Account.Cases.Records</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>BCd2VboM+XJd8wKJkUHwxaCxsM+rtwimt5+DU8ClRYY=_4</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__recordSummary</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
