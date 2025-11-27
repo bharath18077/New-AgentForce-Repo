@@ -1,0 +1,28 @@
+{
+  "required" : [ "var_mobile" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "var_annualrevenue" : {
+      "title" : "var_annualrevenue",
+      "description" : "input amount",
+      "lightning:type" : "lightning__numberType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    },
+    "var_mobile" : {
+      "title" : "var_mobile",
+      "description" : "input mobile number",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "var_name" : {
+      "title" : "var_name",
+      "description" : "give the name",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}
