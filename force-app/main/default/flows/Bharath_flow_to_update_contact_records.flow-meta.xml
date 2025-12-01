@@ -70,12 +70,6 @@
                 <elementReference>v_NewPhone</elementReference>
             </value>
         </inputAssignments>
-        <inputAssignments>
-            <field>Salutation</field>
-            <value>
-                <stringValue>Mr.</stringValue>
-            </value>
-        </inputAssignments>
         <object>Contact</object>
     </recordUpdates>
     <start>
