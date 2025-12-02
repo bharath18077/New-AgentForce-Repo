@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiFunction xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Agent will take the input from the user and update the mobile and email id of the contact record.</description>
+    <developerName>Bharath_flow_to_update_contact_records</developerName>
     <invocationTarget>Bharath_flow_to_update_contact_records</invocationTarget>
     <invocationTargetType>flow</invocationTargetType>
     <isConfirmationRequired>false</isConfirmationRequired>
     <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+    <localDeveloperName>Bharath_flow_to_update_contact_records</localDeveloperName>
     <masterLabel>Bharath flow to update contact records</masterLabel>
     <progressIndicatorMessage>Agent will take the input from the user and update the mobile and email id.</progressIndicatorMessage>
 </GenAiFunction>
